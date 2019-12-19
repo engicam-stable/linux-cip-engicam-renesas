@@ -1,0 +1,36 @@
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * Device Tree Source for the Hoperun Technology HiHope RZ/G2M extension board
+ * (hihope-rzg2m-ex)
+ *
+ * Copyright (C) 2019 Renesas Electronics Corp.
+ */
+
+#include <dt-bindings/gpio/gpio.h>
+
+#include "r8a774a1-hihope-rzg2m.dts"
+#include "hihope-rzg2-ex.dtsi"
+
+/ {
+	model = "Hoperun Technology HiHope RZ/G2M extension board \
+		(hihope-rzg2m-ex)";
+	compatible =	"hoperun,hihope-rzg2-ex", "hoperun,hihope-rzg2m",
+			"renesas,r8a774a1";
+};
+
+&pciec0 {
+	status = "okay";
+};
+
+&pciec1 {
+	status = "okay";
+};
+
+&gpio7 {
+	pcie-en-gpio {
+		gpio-hog;
+		gpios = <3 GPIO_ACTIVE_HIGH>;
+		output-high;
+		line-name = "pcie-en-gpio";
+	};
+};
